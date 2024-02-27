@@ -1,0 +1,75 @@
+@mixin text-style($font-size, $line-height, $underline: false) {
+  font-size: $font-size;
+  line-height: $line-height;
+  @if ($underline) {
+    text-decoration: underline;
+  }
+}
+
+// --- Body styles ---
+@mixin body-l() {
+  @include text-style(16px, 170%);
+}
+
+@mixin body-l-link() {
+  @include text-style(16px, 170%, $underline: true);
+}
+
+@mixin body-m() {
+  @include text-style(14px, 170%);
+}
+
+@mixin body-m-link() {
+  @include text-style(14px, 170%, $underline: true);
+}
+
+// --- Label styles ---
+@mixin label-l() {
+  font-weight: 500;
+  @include text-style(14px, 150%);
+}
+
+@mixin label-l-link() {
+  font-weight: 500;
+  @include text-style(14px, 150%, $underline: true);
+}
+
+@mixin label-m() {
+  font-weight: 500;
+  @include text-style(12px, 150%);
+}
+
+@mixin label-m-link() {
+  font-weight: 500;
+  @include text-style(12px, 150%, $underline: true);
+}
+
+// --- Caption styles ---
+@mixin caption-l() {
+  letter-spacing: 0.02em;
+  @include text-style(12px, 170%);
+}
+
+@mixin caption-l-link() {
+  letter-spacing: 0.02em;
+  @include text-style(12px, 170%, $underline: true);
+}
+
+@mixin caption-m() {
+  letter-spacing: 0.02em;
+  @include text-style(10px, 170%);
+}
+
+@mixin caption-m-link() {
+  letter-spacing: 0.02em;
+  @include text-style(10px, 170%, $underline: true);
+}
+
+// --- Label styles ---
+@mixin button() {
+  @include text-style(16px, 150%);
+}
+
+@mixin button-link() {
+  @include text-style(16px, 150%, $underline: true);
+}

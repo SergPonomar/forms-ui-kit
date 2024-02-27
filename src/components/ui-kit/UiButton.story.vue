@@ -1,0 +1,137 @@
+<script setup lang="ts">
+import UiButton from './UiButton.vue'
+import { reactive } from 'vue'
+
+type Props = InstanceType<typeof UiButton>["$props"];
+
+const sizeOptions: { label: string, value: Props['size'] }[] = [
+  {
+    label: 'Default (l)',
+    value: undefined
+  },
+  {
+    label: 'Large (l)',
+    value: 'l'
+  },
+  {
+    label: 'Medium (m)',
+    value: 'm'
+  },
+  {
+    label: 'Small (s)',
+    value: 's'
+  },
+  {
+    label: 'X-Small (xs)',
+    value: 'xs'
+  },
+]
+
+const stateOptions: { label: string, value: Props['state'] }[] = [
+  {
+    label: 'Default',
+    value: undefined
+  },
+  {
+    label: 'Disabled',
+    value: 'disabled'
+  },
+]
+
+const styleOptions: { label: string, value: Props['style'] }[] = [
+  {
+    label: 'Default (primary)',
+    value: undefined
+  },
+  {
+    label: 'Primary',
+    value: 'primary'
+  },
+  {
+    label: 'Secondary',
+    value: 'secondary'
+  },
+  {
+    label: 'Tertiary',
+    value: 'tertiary'
+  },
+]
+
+const storyState = reactive<Props>({
+  label: 'Label',
+  size: 'l',
+  state: undefined,
+  style: undefined
+})
+
+</script>
+
+<template>
+  <Story auto-props-disabled>
+    <Variant title="Sizes & styles">
+      <div class="story-sandbox">
+        <div
+          v-for="style in styleOptions.slice(1)"
+          :key="style.value"
+          :style="`--content: '${style.label}';`"
+          class="story-sandbox__container"
+        >
+          <UiButton
+            v-for="size in sizeOptions.slice(1)"
+            :key="size.value"
+            label="Label"
+            :size="size.value"
+            :style="style.value"
+          />
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Playground">
+      <div class="story-sandbox__container">
+        <UiButton
+          :label="storyState.label"
+          :size="storyState.size"
+          :style="storyState.style"
+          :state="storyState.state"
+        />
+      </div>
+      <template #controls>
+        <HstText
+          v-model="storyState.label"
+          title="Label"
+        />
+        <HstSelect
+          v-model="storyState.size"
+          title="Size"
+          :options="sizeOptions"
+        />
+        <HstSelect
+          v-model="storyState.state"
+          title="State"
+          :options="stateOptions"
+        />
+        <HstSelect
+          v-model="storyState.style"
+          title="Style"
+          :options="styleOptions"
+        />
+      </template>
+    </Variant>
+  </Story>
+</template>
+
+<style lang="scss" scoped>
+.story-sandbox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &__container {
+    width: fit-content;
+
+    & > *:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
+</style>

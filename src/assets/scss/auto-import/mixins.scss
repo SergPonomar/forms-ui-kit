@@ -1,0 +1,16 @@
+// --- Utils ---
+@mixin hover {
+  &:not(:disabled):hover {
+    @content;
+  }
+}
+
+@mixin active {
+  &:not(:disabled):active {
+    @content;
+  }
+}
+
+@mixin sandbox-container() {
+  background: red;
+}

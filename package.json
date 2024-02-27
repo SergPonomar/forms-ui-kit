@@ -1,0 +1,36 @@
+{
+  "name": "forms-ui-kit",
+  "private": true,
+  "version": "0.0.0",
+  "author": "Sergey Ponomarev (https://github.com/SergPonomar)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "check-types": "vue-tsc",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans": "^5.0.1",
+    "@statelyai/inspect": "^0.2.3",
+    "@xstate/vue": "^3.1.0",
+    "chai-colors": "^1.0.1",
+    "vue": "^3.4.15",
+    "xstate": "^5.7.0"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.12",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "cypress": "^13.6.6",
+    "eslint": "^8.56.0",
+    "histoire": "^0.17.9",
+    "sass": "^1.71.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vue-tsc": "^1.8.27"
+  }
+}
