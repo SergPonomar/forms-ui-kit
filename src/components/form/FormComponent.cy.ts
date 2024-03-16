@@ -164,7 +164,7 @@ describe('<FormComponent />', () => {
     }))
   })
   // --- Send proper body ---
-  it('send propre request body', () => {
+  it('send proper request body', () => {
     const url = 'https://sergponomar-form-demo.builtwithdark.com/form-test'
     const inputText = 'field1 input text'
     const inputName = 'field1'

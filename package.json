@@ -14,6 +14,7 @@
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview",
+    "test": "cypress run --component",
     "cy:run": "cypress run --component --browser chrome --headed",
     "cy:open": "cypress open"
   },
