@@ -93,3 +93,41 @@ const storyState = reactive<Props>({
   max-width: 327px;
 }
 </style>
+
+<docs lang="md">
+## UiInputContainer: An ui kit input container component.
+
+- Style changing according to component state.
+- Properties added for change appropriate text placeholders.
+- Сomponent is made based on the [Design System 1.4.1](https://www.figma.com/community/file/1255349027535859598).
+
+### Component API
+
+#### @Props
+
+| Name        | Description                                                                                                  | Default |
+|-------------|--------------------------------------------------------------------------------------------------------------|---------|
+| inputId     | Can be used for connect label with input in slot. `string`                                                   | -       |
+| state       | State of component. Style changing according to this property.`'idle' \| 'editing' \| 'error' \| 'disabled'` | 'idle’  |
+| required    | Add red sign to label.  `boolean`                                                                            | false   |
+| label       | Label text. `string`                                                                                         | '’      |
+| supportText | Support text. `string`                                                                                       | '’      |
+| errorText   | Error text. `string`                                                                                         | '’      |
+
+### Component usage
+
+```vue
+<template>
+  <UiInputContainer
+    input-id="input-id"
+    required="true"
+    state="idle"
+    label="Label"
+    support-text="Support text"
+    error-text="Error text"
+  >
+    <span>Input slot</span>
+  </UiInputContainer>
+</template>
+```
+</docs>

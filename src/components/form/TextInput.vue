@@ -182,7 +182,6 @@ const inputMachine = setup({
 
 const { snapshot, send, actorRef } = useSaveMachine(inputMachine, props.name, formName)
 
-// const inputValue = ref(snapshot.value.context.value)
 const inputValue = useSelector(actorRef, snapshot => snapshot.context.value)
 const textInput = ref()
 

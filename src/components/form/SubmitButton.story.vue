@@ -62,3 +62,37 @@ const logMachineStateOptions: { label: string, value: Props['state'] }[] = [
   width: fit-content;
 }
 </style>
+
+<docs lang="md">
+## SubmitButton: A next step / submit form component.
+
+- Used for send form request.
+- Can be used as next step button in multi step forms.
+- Disabled if form in 'error' state.
+- Based on [UiButton](../ui-kit/UiButton.story.vue) so can be used with its props (size, label, styleType).
+
+Must be used with [FormComponent](./FormComponent.story.vue).
+
+### Component API
+
+#### @Props
+
+| Name | Description                                          | Default |
+|------|------------------------------------------------------|---------|
+| next | Use this flag for use as next step button. `boolean` | false   |
+
+### Component usage
+
+```vue
+<template>
+  <FormComponent>
+    <SubmitButton
+      label="Отправить"
+      :next='false'
+      size="l"
+      style-type="primary"
+    />
+  </FormComponent>
+</template>
+```
+</docs>

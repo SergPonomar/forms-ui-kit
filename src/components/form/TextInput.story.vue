@@ -67,3 +67,62 @@ const storyState = reactive<Props>({
   width: fit-content;
 }
 </style>
+
+<docs lang="md">
+## TextInput: A text input form component.
+
+- Build with custom state machine.
+- Based on [UiInputContainer](../ui-kit/UiInputContainer.story.vue).
+- Can be used with provided validation function or used with default 'not empty' function.
+- Emit registration events with internal state machine ref.
+- Retains state after reload page/rerender component.
+
+Can be used with [FormComponent](./FormComponent.story.vue) or other machine based components.
+
+### Component API
+
+#### @Props
+
+| Name           | Description                                                                           | Default   |
+|----------------|---------------------------------------------------------------------------------------|-----------|
+| name           | Input's name, will be form field in request body. `string`                            | -         |
+| formName       | Form name, can be used for overwrite value provided by FormComponent. `string`        | -         |
+| label          | Input’s label. `string`                                                               | -         |
+| supportText    | Annotation text under input. `string`                                                 | -         |
+| required       | Flag used for default validation function and also for styling input label. `boolean` | false     |
+| validationFunc | Custom function for validate input’s value. `(value: any) => string`                  | see below |
+
+```ts
+function (value: string): string {
+  return props.required && !value.length
+    ? 'Поле обязательно для заполнения'
+    : ''
+}
+```
+
+#### @Events
+
+| Name       | Description                    | Payload                                                      |
+|------------|--------------------------------|--------------------------------------------------------------|
+| register   | Emitted on component creation. | `{ type: 'REGISTER', data: { name: string, actor: Actor } }` |
+| unregister | Emitted on component destroy.  | `{ type: 'UNREGISTER', data: { name: string } }`             |
+
+### Component usage
+
+```vue
+<template>
+  <FormComponent>
+    <TextInput
+      label="Поле 1"
+      name="field1"
+      form-name="form-name"
+      support-text="support text"
+      :required="false"
+      :validationFunc="(value) => value === '22' ? 'Ошибка 22': ''"
+      @register="onRegister"
+      @unregister="onUnregister"
+    />
+  </FormComponent>
+</template>
+```
+</docs>

@@ -88,7 +88,7 @@ const stateOptions: { label: string, value: Props['url'] }[] = [
     <Variant title="Multistep form">
       <div class="story-sandbox__container">
         <FormComponent
-          v-slot="slotProps"
+          v-slot="{ step, numberOfSteps }"
           class="form-component-story"
           :name="storyStateMulti.name"
           :number-of-steps="storyStateMulti.numberOfSteps"
@@ -98,9 +98,9 @@ const stateOptions: { label: string, value: Props['url'] }[] = [
           @error="logEvent('error', $event)"
         >
           <p class="form-component-story__title">
-            Шаг {{ slotProps.step }}/{{ slotProps.numberOfSteps }}
+            Шаг {{ step }}/{{ numberOfSteps }}
           </p>
-          <div v-if="slotProps.step === 1">
+          <div v-if="step === 1">
             <TextInput
               label="Поле 1"
               name="field1"
@@ -113,7 +113,7 @@ const stateOptions: { label: string, value: Props['url'] }[] = [
               />
             </div>
           </div>
-          <div v-if="slotProps.step === 2">
+          <div v-if="step === 2">
             <TextInput
               label="Поле 2"
               name="field2"
@@ -185,3 +185,64 @@ const stateOptions: { label: string, value: Props['url'] }[] = [
   }
 }
 </style>
+
+<docs lang="md">
+## FormComponent: A multi step form component.
+
+- Build with custom state machine.
+- Automatically send request to provided url/method.
+- Multiple steps via provided slotProps.
+- Retains state after reload page/rerender component.
+
+Must be used with form control components. For example: [SubmitButton](./SubmitButton.story.vue)
+
+### Component API
+
+#### @Props
+
+| Name          | Description                                                                                | Default |
+|---------------|--------------------------------------------------------------------------------------------|---------|
+| name          | The name of the form. The value must not be the empty string, and must be unique. `string` | -       |
+| numberOfSteps | Number of steps for multi step mode. `number`                                              | 1       |
+| url           | Request url. `string`                                                                      | -       |
+| method        | Request method. `Method` ( axios type)                                                     | 'post’  |
+
+#### @Events
+
+| Name  | Description                        | Payload        |
+|-------|------------------------------------|----------------|
+| done  | Emitted after successful request   | Response body  |
+| error | Emitted after unsuccessful request | Response error |
+
+#### @Providers
+
+| Name      | Description                                                             |
+|-----------|-------------------------------------------------------------------------|
+| formName  | The name of the form. Provided for form components usage. `string`      |
+| formActor | Form actor. Provided for form components usage. `Actor` ( xstate type ) |
+
+### Component usage
+
+```vue
+<template>
+  <FormComponent
+    v-slot="{ step, numberOfSteps }"
+    name="form-name"
+    :number-of-steps="1"
+    url="https://example.com/"
+    method="post"
+    @done="onDone"
+    @error="onError"
+  >
+    <p>{{ step }}/{{ numberOfSteps }}</p>
+    <TextInput
+      label="Поле 1"
+      name="field1"
+    />
+    <SubmitButton
+      label="Отправить"
+    />
+  </FormComponent>
+</template>
+```
+</docs>

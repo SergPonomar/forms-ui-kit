@@ -28,3 +28,26 @@ import LogMachine from '@/story/LogMachine.vue'
   width: fit-content;
 }
 </style>
+
+<docs lang="md">
+## PreviousButton: A previous step form component.
+
+- Used as previous step button in multi step forms.
+- Based on [UiButton](../ui-kit/UiButton.story.vue) so can be used with its props (size, label, styleType).
+
+Must be used with [FormComponent](./FormComponent.story.vue).
+
+### Component usage
+
+```vue
+<template>
+  <FormComponent>
+    <SubmitButton
+      label="Назад"
+      size="l"
+      style-type="primary"
+    />
+  </FormComponent>
+</template>
+```
+</docs>

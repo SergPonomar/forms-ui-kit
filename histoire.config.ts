@@ -7,6 +7,9 @@ export default defineConfig({
   ],
   setupFile: './src/story/histoire.setup.ts',
   theme: {
-    title: 'Form UI kit'
+    title: 'Form UI kit',
+    favicon: '/vite.svg',
+    logoHref: 'https://github.com/SergPonomar/forms-ui-kit',
+    hideColorSchemeSwitch: true
   }
 })

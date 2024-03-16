@@ -138,3 +138,36 @@ const storyState = reactive<Props>({
   }
 }
 </style>
+
+<docs lang="md">
+## UiButton: An ui kit button component.
+
+- Can be sized by 'size' property.
+- Can be styled by 'styleType' property.
+- Can be disabled by 'state' property.
+- Сomponent is made based on the [Design System 1.4.1](https://www.figma.com/community/file/1255349027535859598).
+
+### Component API
+
+#### @Props
+
+| Name      | Description                                                                     | Default   |
+|-----------|---------------------------------------------------------------------------------|-----------|
+| size      | Size of button according to design system. ` 'l' \| 'm' \| 's' \| 'xs'`         | 'l’       |
+| label     | Button text. `string`                                                           | -         |
+| state     | Can be used for disable component. `disabled`                                   | -         |
+| styleType | Style type according to design system. `'primary' \| 'secondary' \| 'tertiary'` | 'primary' |
+
+### Component usage
+
+```vue
+<template>
+  <UiButton
+    label="Купить"
+    size="l"
+    style-type="primary"
+    state="disabled"
+  />
+</template>
+```
+</docs>
