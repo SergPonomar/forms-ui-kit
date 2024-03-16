@@ -73,3 +73,40 @@
 @mixin button-link() {
   @include text-style(16px, 150%, $underline: true);
 }
+
+// --- Headline styles ---
+@mixin headline-xxl() {
+  @include text-style(57px, 140%);
+}
+
+@mixin headline-xl() {
+  @include text-style(45px, 140%);
+}
+
+@mixin headline-l-mobile() {
+  @include text-style(32px, 150%);
+}
+
+@mixin headline-l() {
+  @include text-style(36px, 140%);
+}
+
+@mixin headline-m() {
+  @include text-style(32px, 150%);
+}
+
+@mixin headline-s() {
+  @include text-style(28px, 150%);
+}
+
+@mixin headline-s-mobile() {
+  @include text-style(24px, 150%);
+}
+
+@mixin headline-xs-mobile() {
+  @include text-style(20px, 140%);
+}
+
+@mixin headline-xs() {
+  @include text-style(24px, 140%);
+}

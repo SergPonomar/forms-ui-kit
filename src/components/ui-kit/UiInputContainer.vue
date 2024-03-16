@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 interface Props {
   inputId?: string
-  state?: 'idle' | 'editing' | 'error' | 'disabled' 
+  state?: 'idle' | 'editing' | 'error' | 'disabled'
   required?: boolean
   label?: string
   supportText?: string
@@ -55,7 +55,7 @@ const stateClasses = computed(() => {
     <div
       class="ui-input-container__slot"
       :class="stateClasses"
-    > 
+    >
       <slot />
     </div>
     <p
@@ -97,7 +97,6 @@ const stateClasses = computed(() => {
     border-radius: 8px;
     width: 100%;
     margin: 4px 0;
-    margin-bottom: 8px;
     background: white;
 
     &_editing {
@@ -116,6 +115,7 @@ const stateClasses = computed(() => {
   }
 
   &__error-text {
+    margin-top: 8px;
     @include caption-l;
     color: $error-1;
   }

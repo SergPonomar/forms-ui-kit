@@ -97,3 +97,12 @@ button {
   border: none;
   padding: 0;
 }
+
+p {
+  @include text-style(16px, 150%);
+  letter-spacing: 0.005em;
+
+  @media screen and (min-width: 768px) {
+    letter-spacing: 0.0175em;
+  }
+}

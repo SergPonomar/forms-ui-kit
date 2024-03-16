@@ -1,2 +1,2 @@
-import "../assets/scss/global.scss"
-import "./sandbox-styles.scss"
+import '@/assets/scss/global.scss'
+import '@/story/sandbox-styles.scss'

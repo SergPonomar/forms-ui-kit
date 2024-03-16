@@ -3,7 +3,10 @@ import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
-    HstVue(),
+    HstVue()
   ],
   setupFile: './src/story/histoire.setup.ts',
+  theme: {
+    title: 'Form UI kit'
+  }
 })

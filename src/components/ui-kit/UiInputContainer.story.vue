@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import UiInputContainer from './UiInputContainer.vue'
 import { reactive } from 'vue'
+import UiInputContainer from '@/components/ui-kit/UiInputContainer.vue'
 
-type Props = InstanceType<typeof UiInputContainer>["$props"];
+type Props = InstanceType<typeof UiInputContainer>['$props'];
 
 const stateOptions: { label: string, value: Props['state'] }[] = [
   {
@@ -24,7 +24,7 @@ const stateOptions: { label: string, value: Props['state'] }[] = [
   {
     label: 'Disabled',
     value: 'disabled'
-  },
+  }
 ]
 
 const storyState = reactive<Props>({
@@ -39,7 +39,10 @@ const storyState = reactive<Props>({
 </script>
 
 <template>
-  <Story auto-props-disabled>
+  <Story
+    title="Ui kit/UiInputContainer"
+    auto-props-disabled
+  >
     <Variant title="Playground">
       <div class="story-sandbox__container">
         <UiInputContainer
@@ -51,7 +54,7 @@ const storyState = reactive<Props>({
           :error-text="storyState.errorText"
         >
           <span>Input slot</span>
-        </UiInputContainer> 
+        </UiInputContainer>
       </div>
       <template #controls>
         <HstText
@@ -85,11 +88,8 @@ const storyState = reactive<Props>({
 </template>
 
 <style lang="scss" scoped>
-.story-sandbox {
-
-  &__container {
-    width: 100%;
-    max-width: 327px;
-  }
+.story-sandbox__container{
+  width: 100%;
+  max-width: 327px;
 }
 </style>

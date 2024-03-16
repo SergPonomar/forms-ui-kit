@@ -1,4 +1,4 @@
-import UiButton from './UiButton.vue'
+import UiButton from '@/components/ui-kit/UiButton.vue'
 
 describe('<UiButton />', () => {
   it('renders', () => {
@@ -38,7 +38,7 @@ describe('<UiButton />', () => {
   })
   // --- Props tests: label ---
   it('render label', () => {
-    const label = 'Label'
+    const label = 'Test-label'
     cy.mount(UiButton)
     cy.get('button').should('be.empty')
     cy.mount(UiButton, {
@@ -59,22 +59,22 @@ describe('<UiButton />', () => {
   it('matches the specified style', () => {
     const styles = [{
       backgroundColor: '#0017C1',
-      style: undefined
+      styleType: undefined
     }, {
       backgroundColor: '#0017C1',
-      style: 'primary'
+      styleType: 'primary'
     }, {
       backgroundColor: '#FFFFFF',
-      style: 'secondary'
+      styleType: 'secondary'
     }, {
       backgroundColor: 'none',
-      style: 'tertiary'
+      styleType: 'tertiary'
     }]
-    for (const { style, backgroundColor } of styles) {
+    for (const { styleType, backgroundColor } of styles) {
       cy.mount(UiButton, {
-        props: { style }
+        props: { styleType }
       })
-      if(backgroundColor === 'none') {
+      if (backgroundColor === 'none') {
         cy.get('button')
           .should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
       } else {
@@ -82,6 +82,6 @@ describe('<UiButton />', () => {
           .should('have.css', 'background-color')
           .and('be.colored', backgroundColor)
       }
-    }  
+    }
   })
 })

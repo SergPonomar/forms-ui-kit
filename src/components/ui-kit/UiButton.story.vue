@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import UiButton from './UiButton.vue'
 import { reactive } from 'vue'
+import UiButton from '@/components/ui-kit/UiButton.vue'
 
-type Props = InstanceType<typeof UiButton>["$props"];
+type Props = InstanceType<typeof UiButton>['$props'];
 
 const sizeOptions: { label: string, value: Props['size'] }[] = [
   {
@@ -24,7 +24,7 @@ const sizeOptions: { label: string, value: Props['size'] }[] = [
   {
     label: 'X-Small (xs)',
     value: 'xs'
-  },
+  }
 ]
 
 const stateOptions: { label: string, value: Props['state'] }[] = [
@@ -35,10 +35,10 @@ const stateOptions: { label: string, value: Props['state'] }[] = [
   {
     label: 'Disabled',
     value: 'disabled'
-  },
+  }
 ]
 
-const styleOptions: { label: string, value: Props['style'] }[] = [
+const styleOptions: { label: string, value: Props['styleType'] }[] = [
   {
     label: 'Default (primary)',
     value: undefined
@@ -54,20 +54,23 @@ const styleOptions: { label: string, value: Props['style'] }[] = [
   {
     label: 'Tertiary',
     value: 'tertiary'
-  },
+  }
 ]
 
 const storyState = reactive<Props>({
   label: 'Label',
   size: 'l',
   state: undefined,
-  style: undefined
+  styleType: undefined
 })
 
 </script>
 
 <template>
-  <Story auto-props-disabled>
+  <Story
+    title="Ui kit/UiButton"
+    auto-props-disabled
+  >
     <Variant title="Sizes & styles">
       <div class="story-sandbox">
         <div
@@ -81,7 +84,7 @@ const storyState = reactive<Props>({
             :key="size.value"
             label="Label"
             :size="size.value"
-            :style="style.value"
+            :style-type="style.value"
           />
         </div>
       </div>
@@ -92,7 +95,7 @@ const storyState = reactive<Props>({
         <UiButton
           :label="storyState.label"
           :size="storyState.size"
-          :style="storyState.style"
+          :style-type="storyState.styleType"
           :state="storyState.state"
         />
       </div>
@@ -112,7 +115,7 @@ const storyState = reactive<Props>({
           :options="stateOptions"
         />
         <HstSelect
-          v-model="storyState.style"
+          v-model="storyState.styleType"
           title="Style"
           :options="styleOptions"
         />

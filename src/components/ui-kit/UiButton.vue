@@ -5,14 +5,14 @@ interface Props {
   size?: 'l' | 'm' | 's' | 'xs'
   label?: string
   state?: 'disabled'
-  style?: 'primary' | 'secondary' | 'tertiary'
+  styleType?: 'primary' | 'secondary' | 'tertiary'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: '',
   size: 'l',
   state: undefined,
-  style: undefined
+  styleType: undefined
 })
 
 const sizeClasses = computed(() => {
@@ -27,10 +27,10 @@ const sizeClasses = computed(() => {
 })
 
 const styleClasses = computed(() => {
-  switch (props.style) {
+  switch (props.styleType) {
     case 'secondary':
     case 'tertiary':
-      return `ui-button_${props.style}`
+      return `ui-button_${props.styleType}`
     default:
       return ''
   }
