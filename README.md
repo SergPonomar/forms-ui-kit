@@ -3,10 +3,11 @@
 #### Компоненты формы (UI kit) на основе:
 - фреймворк [Vue 3](https://vuejs.org/) Composition API
 - сборщик [Vite](https://vitejs.dev/)
-- сторибук [Histoire] (https://histoire.dev/)
-- менеджер состояния [XState] (https://xstate.js.org/)
-- препроцессор [SCSS] (https://sass-lang.com/)
-- тесты [Cypress] (https://www.cypress.io/)
+- [typescript](https://www.typescriptlang.org/)
+- сторибук [Histoire](https://histoire.dev/)
+- менеджер состояния [XState](https://xstate.js.org/)
+- препроцессор [SCSS](https://sass-lang.com/)
+- тесты [Cypress](https://www.cypress.io/)
 
 #### Основные особенности:
 - Компоненты сделаны на основе [Design System 1.4.1](https://www.figma.com/community/file/1255349027535859598) от [@digitalagencyjp](https://www.figma.com/@digitalagencyjp).
